@@ -1,0 +1,21 @@
+/* Empty. Add your own CSS if you like */
+.box{
+    width: 320px;
+    height: 568px;
+    max-width: 100%;
+}
+
+.blue{
+    background:url(/www/img/bg1.png) no-repeat;
+   
+}
+
+.red{
+    background:url(/www/img/bg2.png) no-repeat;
+  
+}
+.orange{
+    background:url(/www/img/bg3.png) no-repeat;
+
+
+}

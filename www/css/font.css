@@ -1,0 +1,49 @@
+/*
+@font-face {
+	font-family: 'MYRIADPROREGULAR';
+	src: url('./fonts/MYRIADPROREGULAR.eot');
+	src: local('MYRIADPROREGULAR'), url('./fonts/MYRIADPROREGULAR.woff') format('woff'), url('./fonts/MYRIADPROREGULAR.ttf') format('truetype');
+}
+*/
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_4410">Text with this font applied</p> */
+p {
+/*	font-family: 'MYRIADPROREGULAR' !important;*/
+    font-family: quicksand;
+    color: rgba(255,255,255,.6);
+    font-size:1.2em;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    top:30%;
+}
+h1{
+    font-family: quicksand;
+    color: rgba(255,255,255,.8);
+    font-size:1.5em;
+    text-align: center;
+    top:20%;
+    position: relative;
+    font-size: 1.7em;
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.6);
+    padding: 8px 18px;
+    color: #fff;
+    
+}
+
+.order{
+    font-family: quicksand;
+    text-align: center;
+    top:70%;
+    position: relative;
+
+
+
+
+
+}
+
+/* Font downloaded from FontsForWeb.com */
