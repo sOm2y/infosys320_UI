@@ -19,3 +19,8 @@ function MyCtrl($scope, $ionicSlideBoxDelegate) {
     $ionicSlideBoxDelegate.next();
   }
 }
+function ContentController($scope, $ionicSideMenuDelegate) {
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+}

@@ -1,16 +1,19 @@
-/*!
- * Copyright 2014 Drifty Co.
- * http://drifty.com/
- *
- * Ionic, v1.0.0-beta.12
- * A powerful HTML5 mobile app framework.
- * http://ionicframework.com/
- *
- * By @maxlynch, @benjsperry, @adamdbradley <3
- *
- * Licensed under the MIT license. Please see LICENSE for more information.
- *
- */
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #4a87ee !default;
+$calm:                            #43cee6 !default;
+$balanced:                        #66cc33 !default;
+$energized:                       #f0b840 !default;
+$assertive:                       #ef4e3a !default;
+$royal:                           #8a6de9 !default;
+$dark:                            #444 !default;
+*/
 /*!
   Ionicons, v1.5.2
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -19,8 +22,8 @@
 */
 @font-face {
   font-family: "Ionicons";
-  src: url("../fonts/ionicons.eot?v=1.5.2");
-  src: url("../fonts/ionicons.eot?v=1.5.2#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.5.2") format("truetype"), url("../fonts/ionicons.woff?v=1.5.2") format("woff"), url("../fonts/ionicons.svg?v=1.5.2#Ionicons") format("svg");
+  src: url("../lib/ionic/fonts/ionicons.eot?v=1.5.2");
+  src: url("../lib/ionic/fonts/ionicons.eot?v=1.5.2#iefix") format("embedded-opentype"), url("../lib/ionic/fonts/ionicons.ttf?v=1.5.2") format("truetype"), url("../lib/ionic/fonts/ionicons.woff?v=1.5.2") format("woff"), url("../lib/ionic/fonts/ionicons.svg?v=1.5.2#Ionicons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2220,6 +2223,7 @@ body.grade-b, body.grade-c {
   position: relative; }
 
 .scroll-content {
+  background: #E1E5E0;
   position: absolute;
   top: 0;
   right: 0;
@@ -2779,9 +2783,9 @@ a.subdued {
     .bar.bar-stable.bar-footer {
       background-image: linear-gradient(180deg, #b2b2b2, #b2b2b2 50%, transparent 50%); }
   .bar.bar-positive {
-    border-color: #145fd7;
+    border-color: #62A4A0;
     background-color: #62A4A0;
-    background-image: linear-gradient(0deg, #145fd7, #145fd7 50%, transparent 50%);
+    background-image: linear-gradient(0deg, #62A4A0, #62A4A0 50%, transparent 50%);
     color: #fff; }
     .bar.bar-positive .title {
       color: #fff; }
@@ -2824,9 +2828,9 @@ a.subdued {
     .bar.bar-energized.bar-footer {
       background-image: linear-gradient(180deg, #d39211, #d39211 50%, transparent 50%); }
   .bar.bar-royal {
-    border-color: #552bdf;
-    background-color: #8a6de9;
-    background-image: linear-gradient(0deg, #552bdf, #552bdf 50%, transparent 50%);
+    border-color: #62A4A0;
+    background-color: #62A4A0;
+    background-image: linear-gradient(0deg, #62A4A0, #62A4A0 50%, transparent 50%);
     color: #fff; }
     .bar.bar-royal .title {
       color: #fff; }
@@ -4124,14 +4128,14 @@ a.subdued {
  * --------------------------------------------------
  */
 .item {
-  border-color: #ddd;
-  background-color: #fff;
-  color: #444;
+  border-color: #fff;
+  background-color: Cornsilk;
+  color: #888;
   position: relative;
   z-index: 2;
   display: block;
   margin: -1px;
-  padding: 16px;
+  padding: 10px;
   border-width: 1px;
   border-style: solid;
   font-size: 16px; }
