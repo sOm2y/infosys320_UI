@@ -2223,7 +2223,7 @@ body.grade-b, body.grade-c {
   position: relative; }
 
 .scroll-content {
-  background: #E1E5E0;
+  background: #192830;
   position: absolute;
   top: 0;
   right: 0;
@@ -2783,9 +2783,9 @@ a.subdued {
     .bar.bar-stable.bar-footer {
       background-image: linear-gradient(180deg, #b2b2b2, #b2b2b2 50%, transparent 50%); }
   .bar.bar-positive {
-    border-color: #62A4A0;
-    background-color: #62A4A0;
-    background-image: linear-gradient(0deg, #62A4A0, #62A4A0 50%, transparent 50%);
+    border-color: #EE6B56;
+    background-color: #EE6B56;
+    background-image: linear-gradient(0deg, #EE6B56, #EE6B56 50%, transparent 50%);
     color: #fff; }
     .bar.bar-positive .title {
       color: #fff; }
@@ -2828,9 +2828,9 @@ a.subdued {
     .bar.bar-energized.bar-footer {
       background-image: linear-gradient(180deg, #d39211, #d39211 50%, transparent 50%); }
   .bar.bar-royal {
-    border-color: #62A4A0;
-    background-color: #62A4A0;
-    background-image: linear-gradient(0deg, #62A4A0, #62A4A0 50%, transparent 50%);
+    border-color: #EE6B56;
+    background-color: #EE6B56;
+    background-image: linear-gradient(0deg, #EE6B56, #EE6B56 50%, transparent 50%);
     color: #fff; }
     .bar.bar-royal .title {
       color: #fff; }
@@ -4128,9 +4128,9 @@ a.subdued {
  * --------------------------------------------------
  */
 .item {
-  border-color: #fff;
-  background-color: Cornsilk;
-  color: #888;
+  border-color: #333;
+  background-color: #192830;
+  color: #fff;
   position: relative;
   z-index: 2;
   display: block;
@@ -4212,8 +4212,8 @@ a.subdued {
     cursor: pointer; }
 
 .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
-  border-color: #ccc;
-  background-color: #D9D9D9; }
+  border-color: #93CCCC;
+  background-color: #93CCCC; }
   .item.active.item-light, .item.activated.item-light, .item-complex.active .item-content.item-light, .item-complex.activated .item-content.item-light, .item .item-content.active.item-light, .item .item-content.activated.item-light {
     border-color: #ccc;
     background-color: #fafafa; }
