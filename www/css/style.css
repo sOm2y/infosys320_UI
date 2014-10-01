@@ -7,16 +7,16 @@
 }
 
 .blue{
-    background:url(/www/img/bg1.png) no-repeat;
+    background:url('/img/bg1.png') no-repeat;
    
 }
 
 .red{
-    background:url(/www/img/bg2.png) no-repeat;
+    background:url(/img/bg2.png) no-repeat;
   
 }
 .orange{
-    background:url(/www/img/bg3.png) no-repeat;
+    background:url(/img/bg3.png) no-repeat;
 
 
 }

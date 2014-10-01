@@ -1,43 +1,221 @@
-<!DOCTYPE html>
-<html>
+<html ng-app="order">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
-
-
-    <!-- compiled css output -->
+     
+    <title>Coffee Time</title>
     <link href="css/ionic.app.css" rel="stylesheet">
-
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
-  </head>
-  <body ng-app="starter" animation="slide-left-right-ios7">
-    <!-- 
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <ion-nav-bar class="bar-stable nav-title-slide-ios7 bar-assertive">
-      <ion-nav-back-button class="button-icon icon  ion-ios7-arrow-back">
-        Back
-      </ion-nav-back-button>
-         
-  
+    <link rel="stylesheet" href="css/font.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    
+   
+    <style>
+      body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
       
-    </ion-nav-bar>
+      
+    </style>
+    
+    
+    <script
+    src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAyE2dYNjF79jtr3SldJptQr9VbuqKRbck&sensor=true">
+    </script>
 
-    <!-- 
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
-    <ion-nav-view></ion-nav-view>
+    <script>
+        var myCenter=new google.maps.LatLng(-36.852619, 174.771612);
+
+        function initialize()
+        {
+        var mapProp = {
+          center:myCenter,
+          zoom:17,
+          mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+
+        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+        var marker=new google.maps.Marker({
+          position:myCenter,
+          });
+
+        marker.setMap(map);
+        }
+
+        
+        
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+ 
+  <body ng-controller="OrderCtrl">
+    
+    <ion-side-menus>
+    
+      <ion-side-menu-content>
+        <ion-header-bar class="bar-positive">
+          <button class="button button-icon ion-navicon" ng-click="toggleLeft()" ng-hide="$exposeAside.active"></button>
+          <h1 class="title">Coffee Time</h1>
+        <!-- TODO:SEARCH BAR         -->
+<!--
+      <label for="location-search" class="item item-input">
+       <input class="location-search" type="text" placeholder="type your location">
+       <a style="float:right" class="fa fa-search"></a>
+       </label>
+-->
+        </ion-header-bar>
+<!--
+         TODO:STYLING TAB       
+        <div class="tabs-striped tabs-top tabs-background-positive tabs-light" ng-controller="TabController">
+            <div class="tabs" ng-init="tab=1">
+              <a class="tab-item active"  href="#">
+               <i class="icon ion-coffee"></i>
+               Beverage
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-pizza"></i>
+                Food
+              </a>
+              <a class="tab-item"href="#">
+                <i class="icon ion-ios7-cart-outline"></i>
+                Cart
+              </a>
+            </div>
+          </div>
+-->
+          
+          <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-light" ng-controller="BeverageCtrl">
+
+              <ion-tab title="Beverage" icon-on="ion-coffee" ng-controller="BeverageCtrl" >
+                  <ion-content>
+                    <div class="list">
+
+                        <a ng-repeat="item in items" 
+                           href="#/{{item.id}}"
+                           class="item item-thumbnail-left">
+
+                          <img ng-src="{{ item.image }}">
+                          <h2>{{ item.album }}</h2>
+                          <h4>{{ item.artist }}</h4>
+                        </a>
+
+                      </div>
+
+                   </ion-content>
+              </ion-tab>
+
+              <ion-tab title="Food" icon-on="ion-pizza" ng-controller="FoodCtrl">  
+              <ion-content>
+                    <div class="list">
+
+                        <a ng-repeat="item in items" 
+                           href="#/{{item.id}}"
+                           class="item item-thumbnail-left">
+
+                          <img ng-src="{{ item.image }}">
+                          <h2>{{ item.album }}</h2>
+                          <h4>{{ item.artist }}</h4>
+                        </a>
+
+                      </div>
+
+                   </ion-content>
+              </ion-tab>
+
+              <ion-tab title="Cart" icon-on="ion-ios7-cart" ng-controller="CartCtrl">
+              <ion-content>
+                   <ion-list  can-swipe="listCanSwipe">
+                      <ion-item ng-repeat="item in items">
+
+
+                        <a href="#/{{item.id}}"class="item item-thumbnail-left">
+
+                          <img ng-src="{{ item.image }}">
+                          <h2>{{ item.album }}</h2>
+                          <h4>{{ item.artist }}</h4>
+                           <ion-option-button class="button-positive">Share</ion-option-button>
+    <ion-option-button class="button-assertive">Edit</ion-option-button>
+                        </a>
+                        <ion-option-button class="button-positive"
+                    >
+                          Share
+                        </ion-option-button>
+                        <ion-option-button class="button-info">
+                          Edit
+                        </ion-option-button>
+
+                     </ion-item>
+                    </ion-list>
+
+                   </ion-content>
+               
+               
+              </ion-tab>
+
+            </ion-tabs>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        
+        <ion-content class="">
+         
+          
+<!--
+          <p>
+            On a small viewport (less than 768px window width), the left menu will be hidden, but can be shown by swiping left to right, or toggling the button in the top left of the header. On a large viewport (greater than or equal to 768px), the left menu will stay open.
+          </p>
+          <p>
+            Using <code>large</code> as the attribute's value is an alias to <code>(min-width:768px)</code> since it is the most common use-case. However, for added flexibility, any valid media query could be added as the value, such as <code>(min-width:600px)</code> or even multiple queries such as <code>(min-width:750px) and (max-width:1200px)</code>.
+          </p>
+-->
+       
+       
+<!--       <div id="googleMap" style="width:320;height:550px;"></div>-->
+        </ion-content>
+      </ion-side-menu-content>
+    
+      <ion-side-menu expose-aside-when="large">
+        <ion-header-bar class="bar-royal">
+          <h1 class="title">Order Menu</h1>
+        </ion-header-bar>
+        <ion-content>
+          <div class="list">
+            <div class="item active">
+              <a class="icon ion-ios7-person"> Account</a>
+            </div>
+            <div class="item">
+              <a class="icon ion-ios7-gear"> Setting</a>
+            </div>
+            <div class="item">
+              <a class="icon ion-ios7-location"> Location</a>
+            </div>
+            <div class="item">
+              <a class="icon ion-log-out"> Log out</a>
+            </div>
+          </div>
+        </ion-content>
+      </ion-side-menu>
+      
+    </ion-side-menus>
+    <script src="http://use.edgefonts.net/quicksand:i4,n3,i7,n7,n4,i3:all.js"></script>
+   
+    <script src="/lib/ionic/js/ionic.bundle.js"></script>
+    
+    <script src="js/order.js"></script>
+    
+    
+    
   </body>
 </html>
