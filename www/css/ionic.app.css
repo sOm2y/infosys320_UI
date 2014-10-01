@@ -2264,9 +2264,11 @@ body.grade-b, body.grade-c {
 ::-webkit-scrollbar {
   display: none; }
 
+/*
 .scroll-bar {
   position: absolute;
   z-index: 9999; }
+*/
 
 .ng-animate .scroll-bar {
   visibility: hidden; }
@@ -2279,6 +2281,7 @@ body.grade-b, body.grade-c {
   .scroll-bar-h .scroll-bar-indicator {
     height: 100%; }
 
+/*
 .scroll-bar-v {
   top: 2px;
   right: 3px;
@@ -2286,6 +2289,7 @@ body.grade-b, body.grade-c {
   width: 3px; }
   .scroll-bar-v .scroll-bar-indicator {
     width: 100%; }
+*/
 
 .scroll-bar-indicator {
   position: absolute;
