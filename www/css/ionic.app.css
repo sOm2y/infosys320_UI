@@ -20,6 +20,12 @@ $dark:                            #444 !default;
   https://twitter.com/benjsperry  https://twitter.com/ionicframework
   MIT License: https://github.com/driftyco/ionicons
 */
+ion-nav-view {
+  background-color: transparent;
+}
+
+
+
 @font-face {
   font-family: "Ionicons";
   src: url("../lib/ionic/fonts/ionicons.eot?v=1.5.2");

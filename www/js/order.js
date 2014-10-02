@@ -30,51 +30,52 @@ var app=angular.module('order', ['ionic']);
 //
 //}
 
-//app.controller('BeverageCtrl', function($scope) {
-//  // don't be scared by the image value, its just datauri
-//  
-//  $scope.items = [
-//    { id: 1, name: 'Gotta Be Somebody', price: '1', image:'/img/beverage1.jpg'},
-//    { id: 2, name: 'Dark Horse', price: '2.24', image:'/img/beverage2.jpg' },
-//    { id: 3, name: 'Someday', price: '1.14', image:'/img/beverage3.jpg' },
-//    { id: 4, name: 'Someday', price: '1.99', image:'/img/beverage3.jpg' },
-//    { id: 5, name: 'Someday', price: '2.99', image:'/img/beverage3.jpg' },
-//    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-//    { id: 7, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
-//    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
-//  ];
-//  
-//});
-//app.controller('FoodCtrl', function($scope) {
-//  // don't be scared by the image value, its just datauri
-//  
-//  $scope.items = [
-//    { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
-//    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
-//    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
-//    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-//    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
-//    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-//    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
-//    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
-//  ];
-//  
-//});
-//app.controller('CartCtrl', function($scope) {
-//  // don't be scared by the image value, its just datauri
-//  
-//  $scope.items = [
-//    { id: 1, album: 'Gotta Be Somebody', artist: 'Nickelback', image:'/img/beverage1.jpg'},
-//    { id: 2, album: 'Dark Horse', artist: 'Nickelback', image:'/img/beverage2.jpg' },
-//    { id: 3, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-//    { id: 4, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-//    { id: 5, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-//    { id: 6, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-//    { id: 7, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-//    { id: 8, album: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
-//  ];
-//  
-//});
+app.controller('BeverageCtrl', function($scope) {
+  // don't be scared by the image value, its just datauri
+  
+  $scope.items = [
+    { id: 1, name: 'Gotta Be Somebody', price: '1', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'Dark Horse', price: '2.24', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'Someday', price: '1.14', image:'/img/beverage3.jpg' },
+    { id: 4, name: 'Someday', price: '1.99', image:'/img/beverage3.jpg' },
+    { id: 5, name: 'Someday', price: '2.99', image:'/img/beverage3.jpg' },
+    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 7, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
+    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+  ];
+  
+});
+
+app.controller('FoodCtrl', function($scope) {
+  // don't be scared by the image value, its just datauri
+  
+  $scope.items = [
+    { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
+    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
+    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
+    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+  ];
+  
+});
+app.controller('CartCtrl', function($scope) {
+  // don't be scared by the image value, its just datauri
+  
+  $scope.items = [
+    { id: 1, album: 'Gotta Be Somebody', artist: 'Nickelback', image:'/img/beverage1.jpg'},
+    { id: 2, album: 'Dark Horse', artist: 'Nickelback', image:'/img/beverage2.jpg' },
+    { id: 3, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
+    { id: 4, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
+    { id: 5, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
+    { id: 6, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
+    { id: 7, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
+    { id: 8, album: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+  ];
+  
+});
 //app.controller('SideCtrl',function($scope){
 //    
 //
@@ -90,13 +91,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('eventmenu', {
       url: "/event",
       abstract: true,
-      templateUrl: "event-menu.html"
+      templateUrl: "event-menu.html",
+           
+           
     })
     .state('eventmenu.home', {
       url: "/home",
       views: {
         'menuContent' :{
           templateUrl: "home.html"
+       
+        
         }
       }
     })
@@ -124,13 +129,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         'menuContent' :{
           templateUrl:"location.html",
           controller:"LocationCtrl"
-
         }
-
-
       }
-
-
     })
   
   $urlRouterProvider.otherwise("/event/home");
@@ -189,7 +189,7 @@ app.controller('AttendeesCtrl', function($scope) {
   
  app.controller('LocationCtrl', function($scope, $ionicLoading, $compile) {
       function initialize() {
-        var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
+        var myLatlng = new google.maps.LatLng(-36.859927, 174.760529);
         
         var mapOptions = {
           center: myLatlng,
@@ -210,7 +210,7 @@ app.controller('AttendeesCtrl', function($scope) {
         var marker = new google.maps.Marker({
           position: myLatlng,
           map: map,
-          title: 'Uluru (Ayers Rock)'
+          title: 'fsdfsdfsdf'
         });
 
         google.maps.event.addListener(marker, 'click', function() {
@@ -219,6 +219,10 @@ app.controller('AttendeesCtrl', function($scope) {
 
         $scope.map = map;
       }
+     
+     
+     
+     
       google.maps.event.addDomListener(window, 'load', initialize);
       
       $scope.centerOnMe = function() {
@@ -233,7 +237,7 @@ app.controller('AttendeesCtrl', function($scope) {
 
         navigator.geolocation.getCurrentPosition(function(pos) {
           $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-          $scope.loading.hide();
+          $ionicLoading.hide();
         }, function(error) {
           alert('Unable to get location: ' + error.message);
         });
