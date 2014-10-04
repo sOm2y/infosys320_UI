@@ -8,7 +8,7 @@
 /* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_4410">Text with this font applied</p> */
 
 body{
-    font-family: quicksand,'arial';
+    font-family: quicksand;
     color: #fff;
 
 
@@ -18,7 +18,7 @@ body{
 
 p {
 /*	font-family: 'MYRIADPROREGULAR' !important;*/
-    font-family: quicksand, 'arial';
+    font-family: quicksand;
     color: rgba(255,255,255,.6);
     font-size:1.2em;
     margin: 10px;
@@ -27,7 +27,7 @@ p {
     top:30%;
 }
 h1{
-    font-family: quicksand,'arial';
+    font-family: quicksand;
     color: rgba(255,255,255,.8);
     font-size:1.5em;
     text-align: center;
@@ -45,7 +45,7 @@ a{
 }
 
 .order{
-    font-family: quicksand,'arial';
+    font-family: quicksand;
     text-align: center;
     top:70%;
     position: relative;

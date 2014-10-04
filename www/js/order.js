@@ -30,25 +30,7 @@ var app=angular.module('order', ['ionic']);
 //
 //}
 
-app.controller('ModalCtrl', function($scope, $ionicModal) {
-  
-  $scope.carts = [
-     
-  ];
 
-  $ionicModal.fromTemplateUrl('modal.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-      
-  });
-   
-    $scope.createContact = function(u) {        
-    $scope.carts.push({ id: 1, name: 'Gotta Be Somebody', price: '1.8', quantity:u.quantity});
-    $scope.modal.hide();
-  };
-
-});
 
 
 app.controller('BeverageCtrl', function($scope) {
@@ -58,8 +40,7 @@ app.controller('BeverageCtrl', function($scope) {
     $scope.groups = [
     {
       name:"EXPRESSO" ,
-      items: [   
-    { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
+      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
     { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
     { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
     { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
@@ -86,6 +67,7 @@ app.controller('BeverageCtrl', function($scope) {
     }];
     
       
+    
     
   
   
@@ -322,5 +304,24 @@ app.controller('FavouriteCtrl', function($scope) {
     });
      
  
+app.controller('ModalCtrl', function($scope, $ionicModal) {
+  
+  $scope.contacts = [
+    { name: 'Gordon Freeman' },
+    { name: 'Barney Calhoun' },
+    { name: 'Lamarr the Headcrab' },
+  ];
 
+  $ionicModal.fromTemplateUrl('modal.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  
+  $scope.createContact = function(u) {        
+    $scope.contacts.push({ name: u.firstName + ' ' + u.lastName });
+    $scope.modal.hide();
+  };
+
+});
 
