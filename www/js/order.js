@@ -31,20 +31,60 @@ var app=angular.module('order', ['ionic']);
 //}
 
 app.controller('BeverageCtrl', function($scope) {
-  // don't be scared by the image value, its just datauri
-  
-  $scope.items = [
-    { id: 1, name: 'Gotta Be Somebody', price: '1', image:'/img/beverage1.jpg'},
-    { id: 2, name: 'Dark Horse', price: '2.24', image:'/img/beverage2.jpg' },
-    { id: 3, name: 'Someday', price: '1.14', image:'/img/beverage3.jpg' },
-    { id: 4, name: 'Someday', price: '1.99', image:'/img/beverage3.jpg' },
-    { id: 5, name: 'Someday', price: '2.99', image:'/img/beverage3.jpg' },
+
+  $scope.groups = [];
+ 
+    $scope.groups = [
+    {
+      name:"EXPRESSO" ,
+      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
+    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
     { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 7, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
+    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
     { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
-  ];
+        ]
+    },
+    {
+    
+      name: "FEAPPUCCINO",
+      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
+    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
+    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
+    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+        ]
+    
+    
+    }];
+    
+      
+    
+  
+  
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
   
 });
+  
+
 
 app.controller('FoodCtrl', function($scope) {
   // don't be scared by the image value, its just datauri
@@ -105,21 +145,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('eventmenu.checkin', {
-      url: "/check-in",
+    .state('eventmenu.account', {
+      url: "/account",
       views: {
         'menuContent' :{
-          templateUrl: "check-in.html",
-          controller: "CheckinCtrl"
+          templateUrl: "account.html",
+          controller: "AccountCtrl"
         }
       }
     })
-    .state('eventmenu.attendees', {
-      url: "/attendees",
+     .state('eventmenu.customized', {
+      url: "/customized",
       views: {
         'menuContent' :{
-          templateUrl: "attendees.html",
-          controller: "AttendeesCtrl"
+          templateUrl: "customized.html",
+         
+        }
+      }
+    })
+    
+    .state('eventmenu.favourite', {
+      url: "/favourite",
+      views: {
+        'menuContent' :{
+          templateUrl: "favourite.html",
+          controller: "FavouriteCtrl"
         }
       }
     })
@@ -149,7 +199,7 @@ app.controller('MainCtrl', function($scope, $ionicSideMenuDelegate) {
   };
 })
 
-app.controller('CheckinCtrl', function($scope) {
+app.controller('AccountCtrl', function($scope) {
   $scope.showForm = true;
   
   $scope.shirtSizes = [
@@ -170,7 +220,7 @@ app.controller('CheckinCtrl', function($scope) {
   
 })
 
-app.controller('AttendeesCtrl', function($scope) {
+app.controller('FavouriteCtrl', function($scope) {
   
   $scope.activity = [];
   $scope.arrivedChange = function(attendee) {
