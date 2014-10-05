@@ -27,7 +27,7 @@
   </head>
  
   <body>
-    
+
 <!--
     <ion-side-menus>
     
@@ -146,7 +146,8 @@
     
     
 -->
-    
+        
+ 
     
     
      <div ng-controller="MainCtrl">       
@@ -163,8 +164,11 @@
                 <ion-nav-buttons side="left">
                   <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()">
                   </button>
+                  
                 </ion-nav-buttons>
+                
                 <ion-nav-view name="menuContent"></ion-nav-view>
+                
               </ion-side-menu-content> 
 
               <ion-side-menu side="left">
@@ -182,16 +186,16 @@
 
 
 
-                    <a ui-sref="eventmenu.checkin"
+                    <a ui-sref="eventmenu.account"
                        ui-sref-active="current" 
                        class="item item-icon-left">
                       <i class="icon ion-ios7-person"></i>Account
                     </a>
-                    <a ui-sref="eventmenu.attendees"
+                    <a ui-sref="eventmenu.favourite"
                        ui-sref-active="current" 
                        class="item item-icon-left">
-                      <i class="icon ion-ios7-gear"></i>
-                      Customized
+                      <i class="icon ion-ios7-star"></i>
+                      Favourite
                     </a>
                     <a ui-sref="eventmenu.location"
                        ui-sref-active="current" 
@@ -214,24 +218,34 @@
 
           <script id="home.html" type="text/ng-template">
             <ion-view title="Order Menu">
-              <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-light" ng-controller="BeverageCtrl">
+              <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-light" ng-controller="ModalCtrl">
 
               <ion-tab title="Beverage" icon-on="ion-coffee" ng-controller="BeverageCtrl" >
-                  <ion-content>
-                    <div class="list">
+                 <ion-content>
 
-                        <a ng-repeat="item in items" 
-                           href="#/{{item.id}}"
+                      <ion-list>
+                        <div ng-repeat="group in groups">
+                          <ion-item class="item-stable"
+                                    ng-click="toggleGroup(group)"
+                                    ng-class="{active: isGroupShown(group)}">
+                              <i class="icon" ng-class="isGroupShown(group) ? 'ion-ios7-arrow-down' : 'ion-ios7-arrow-right'"></i>
+                            &nbsp;
+                             {{group.name}}
+                             
+                          </ion-item>
+                          <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)" ng-click="modal.show()">
+                            <a href="#/{{item.id}}"
                            class="item item-thumbnail-left">
 
                           <img ng-src="{{ item.image }}">
                           <h2>{{ item.name }}</h2>
-                          <h4>{{ item.price | currency}}</h4>
+                          <h4>{{ item.price | currency }}</h4>
                         </a>
+                          </ion-item>
+                        </div>
+                      </ion-list>
 
-                      </div>
-
-                   </ion-content>
+                    </ion-content>
               </ion-tab>
 
               <ion-tab title="Food" icon-on="ion-pizza" ng-controller="FoodCtrl">  
@@ -252,92 +266,286 @@
                    </ion-content>
               </ion-tab>
 
-              <ion-tab title="Cart" icon-on="ion-ios7-cart" ng-controller="CartCtrl">
+              <ion-tab title="Cart" icon-on="ion-ios7-cart" ng-controller="ModalCtrl">
               <ion-content>
-                   <ion-list  can-swipe="listCanSwipe">
-                      <ion-item ng-repeat="item in items">
+                  <div class="list">
 
+                        <a ng-repeat="item in adds" 
+                           href="#/{{item.name}}"
+                           class="item item-thumbnail-left">
 
-                        <a href="#/{{item.id}}"class="item item-thumbnail-left">
-
-                          <img ng-src="{{ item.image }}">
-                          <h2>{{ item.album }}</h2>
-                          <h4>{{ item.artist }}</h4>
-                           <ion-option-button class="button-positive">Share</ion-option-button>
-    <ion-option-button class="button-assertive">Edit</ion-option-button>
+                         
+                          <h2>{{ item.name }}</h2>
+                          <h4>{{ item.price | currency }}</h4>
                         </a>
-                        <ion-option-button class="button-positive"
-                    >
-                          Share
-                        </ion-option-button>
-                        <ion-option-button class="button-info">
-                          Edit
-                        </ion-option-button>
 
-                     </ion-item>
-                    </ion-list>
+                      </div>
 
                    </ion-content>
                
-               
+               <div class="bar bar-footer bar-balanced">
+                          <div class="title" ui-sref="eventmenu.checkout">CHECK OUT</div>
               </ion-tab>
 
             </ion-tabs>
        
             </ion-view>
           </script>
+            
+         <script id="modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title"></h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Quantity</span>
+              <input ng-model="add.quantity" type="text">
+            </label>
+          
+            <label class="item item-input">
+              <span class="input-label">size</span>
+              <input ng-model="add.size" type="text">
+            </label>
+            <button class="button button-full button-positive" ng-click="createContact(add)">ADD</button>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+           
+           <script id="checkout.html" type="text/ng-template">
+               <ion-view title="Check Out" ng-contoller="ModalCtrl">
+                      <ion-content>
+                       <div class="list">
 
-          <script id="check-in.html" type="text/ng-template">
-            <ion-view title="Event Check-in">
+                        <a ng-repeat="item in adds" 
+                           href="#/{{item.name}}"
+                           class="item item-thumbnail-left">
+
+                         
+                          <h2>{{ item.name }}</h2>
+                          <h4>{{ item.price | currency }}</h4>
+                        </a>
+
+                      </div>
+                      
+                    <div class="row">
+                          <a class="col button button-assertive" ui-sref="eventmenu.home">
+                            Cancel
+                            </a>                          
+                            <a class="col button button-positive" ui-sref="eventmenu.payment">
+                               Confirm
+                            </a>
+                    </div>
+                    </ion-content>
+                  </ion-view>
+                </script>
+                <script id="payment.html" type="text/ng-template">
+               <ion-view title="Payment" ng-contoller="ModalCtrl">
+                      <ion-content>
+                     <div class="list">
+
+                      <label class="item item-input item-select">
+                        <div class="input-label">
+                          Payment
+                        </div>
+                        <select>
+                          <option>VISA</option>
+                          <option selected>INTERNET BANK</option>
+                          <option>APPLE PAY</option>
+                        </select>
+                      </label>
+
+                    </div>
+
+                    <div class="row">
+                          <a class="col button button-assertive" ui-sref="eventmenu.checkout">
+                            BACK
+                            </a>                          
+                            <a class="col button button-positive" ui-sref="eventmenu.success">
+                               PAY NOW
+                            </a>
+                    </div>
+                    </ion-content>
+                  </ion-view>
+                </script>
+                
+                
+                    <script id="success.html" type="text/ng-template">
+               <ion-view title="SUCCESS" ng-contoller="ModalCtrl">
+                      <ion-content>
+                     <div class="list">
+
+                      <label class="item item-input item-select">
+                        <div class="input-label">
+                          Payment
+                        </div>
+                        <select>
+                          <option>VISA</option>
+                          <option selected>INTERNET BANK</option>
+                          <option>APPLE PAY</option>
+                        </select>
+                      </label>
+
+                    </div>
+                     <a class="col button button-positive" ui-sref="eventmenu.home">
+                               BACK HOME
+                            </a>
+                 
+                    </ion-content>
+                  </ion-view>
+                </script>
+            
+          <script id="account.html" type="text/ng-template">
+            <ion-view title="Account Setting">
               <ion-content>
                 <div class="list">
 
                       <a class="item item-icon-left" href="#">
-                        <i class="icon ion-email"></i>
-                        Name
-                      </a>
-
-                      <a class="item item-icon-left item-icon-right" href="#">
-                        <i class="icon ion-chatbubble-working"></i>
-                        Contact Details
-                        <i class="icon ion-ios7-telephone-outline"></i>
-                      </a>
-
-                      <a class="item item-icon-left" href="#">
-                        <i class="icon ion-mic-a"></i>
-                        Payment
+                        <i class="icon ion-ios7-telephone"></i>
+                        Mobile Phone
                         <span class="item-note">
-                          Grammy
+                          +64 021 434 324
                         </span>
+                      </a>
+
+                      <a class="item item-icon-left href="#">
+                        <i class="icon ion-ios7-location"></i>
+                        Address
+                       
+                      </a>
+
+                      <a class="item item-icon-left" ui-sref="eventmenu.customized">
+                        <i class="icon ion-ios7-gear"></i>
+                        Customized
+                       
                       </a>
 
                       <a class="item item-icon-left" href="#">
                         <i class="icon ion-person-stalker"></i>
                         Points
-                        <span class="badge badge-assertive" sytle="">250</span>
+                         <span class="item-note">
+                          250PTS
+                        </span>
                       </a>
 
                     </div>
                     </ion-content>
                   </ion-view>
                 </script>
+                <script id="customized.html" type="text/ng-template">
+          
+                  <ion-view title="customized">
+            
+                    <ion-content>
 
-              <script id="attendees.html" type="text/ng-template">
-                <ion-view title="Event Attendees" left-buttons="leftButtons">
+                      <ul class="list">
+
+                          <li class="item item-toggle" >
+                             HTML5
+                             <label class="toggle toggle-assertive">
+                               <input type="checkbox">
+                               <div class="track">
+                                 <div class="handle"></div>
+                               </div>
+                             </label>
+                          </li>
+                            <li class="item item-toggle">
+                             HTML5
+                             <label class="toggle toggle-assertive">
+                               <input type="checkbox">
+                               <div class="track">
+                                 <div class="handle"></div>
+                               </div>
+                             </label>
+                          </li>
+                            <li class="item item-toggle">
+                             HTML5
+                             <label class="toggle toggle-assertive">
+                               <input type="checkbox">
+                               <div class="track">
+                                 <div class="handle"></div>
+                               </div>
+                             </label>
+                          </li>
+                            <li class="item item-toggle">
+                             HTML5
+                             <label class="toggle toggle-assertive">
+                               <input type="checkbox">
+                               <div class="track">
+                                 <div class="handle"></div>
+                               </div>
+                             </label>
+                          </li>
+
+                          
+
+                        </ul>
+
+                    </ion-content>
+                    <div class="bar bar-footer bar-balanced">
+                          <div class="title" ui-sref="eventmenu.account">Back</div>
+                        </div>
+                  </ion-view>
+                </script>
+
+              <script id="favourite.html" type="text/ng-template">
+                <ion-view title="Favourite List" left-buttons="leftButtons">
                   <ion-content>
-                    <div class="list">
-                      <ion-toggle ng-repeat="attendee in attendees | orderBy:'firstname' | orderBy:'lastname'"
-                                  ng-model="attendee.arrived"
-                                  ng-change="arrivedChange(attendee)">
-                        {{ attendee.firstname }}
-                        {{ attendee.lastname }}
-                      </ion-toggle>
-                      <div class="item item-divider">
-                        Activity
-                      </div>
-                      <div class="item" ng-repeat="msg in activity">
-                        {{ msg }}
-                      </div>
+                   <div class="list">
+
+                        <a class="item item-avatar" href="#">
+                          <img src="/img/beverage3.jpg">
+                          <h3>Venkman</h3>
+                          <span class="item-note">
+                          Price $2.5
+                        </span>
+                        </a>
+
+                        <a class="item item-avatar" href="#">
+                          <img src="/img/beverage3.jpg">
+                          <h3>Venkman</h3>
+                          <span class="item-note">
+                         Price $2.5
+                        </span>
+                        </a>
+
+                        <a class="item item-avatar" href="#">
+                          <img src="/img/beverage3.jpg">
+                          <h3>Venkman</h3>
+                          <span class="item-note">
+                          Price $2.5
+                        </span>
+                        </a>
+
+                        <a class="item item-avatar" href="#">
+                          <img src="/img/beverage3.jpg">
+                          <h3>Venkman</h3>
+                         <span class="item-note">
+                          Price $2.5
+                        </span>
+                        </a>
+
+                        <a class="item item-avatar" href="#">
+                          <img src="/img/beverage3.jpg">
+                          <h3>Venkman</h3>
+                          <span class="item-note">
+                         Price $2.5
+                        </span>
+                        </a>
+
+                        <a class="item item-avatar" href="#">
+                          <img src="/img/beverage3.jpg">
+                          <h3>Venkman</h3>
+                          <span class="item-note">
+                          Price $2.5
+                        </span>
+                        </a>
+
+
+
                     </div>
                   </ion-content>
                 </ion-view>
@@ -355,7 +563,7 @@
               </script>
     
     
-    <div id=""></div>
+    
     
     
     <script src="http://use.edgefonts.net/quicksand:i4,n3,i7,n7,n4,i3:all.js"></script>
