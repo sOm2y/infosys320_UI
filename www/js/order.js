@@ -64,7 +64,36 @@ app.controller('BeverageCtrl', function($scope) {
         ]
     
     
-    }];
+    },
+    {
+      name: "TEAS",
+      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
+    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
+    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
+    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+        ]
+    
+    
+    },
+    {
+      name: "CHCO DRINKS",
+      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
+    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
+    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
+    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
+    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+        ]
+    
+    
+    }
+    ];
     
       
     
@@ -338,17 +367,20 @@ app.controller('ModalCtrl', function($scope, $ionicModal) {
     { name: 'Gordon Freeman',
       price: 2.00,
       quantity: 0,
-      size:''
+      size:'',
+     image:'/img/beverage3.jpg'
     },
     { name: 'Barney Calhoun',
       price: 2.00,
       quantity: 0,
-      size:''
+      size:'',
+     image:'/img/beverage3.jpg'
     },
     { name: 'Lamarr the Headcrab',
       price: 13,
       quantity: 0,
-      size:''
+      size:'',
+     image:'/img/beverage3.jpg'
     },
   ];
 
@@ -365,4 +397,87 @@ app.controller('ModalCtrl', function($scope, $ionicModal) {
     console.log($scope.adds);
   };
 
+});
+
+
+
+app.controller('testCtrl', function($scope) {
+  
+  $scope.data = {
+    showDelete: false
+  };
+  
+  $scope.edit = function(item) {
+    alert('Edit Item: ' + item.id);
+  };
+  $scope.share = function(item) {
+    alert('Share Item: ' + item.id);
+  };
+  
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+    $scope.items.splice(fromIndex, 1);
+    $scope.items.splice(toIndex, 0, item);
+  };
+  
+  $scope.onItemDelete = function(item) {
+    $scope.items.splice($scope.items.indexOf(item), 1);
+  };
+  
+  $scope.items = [
+    { name: 'Gordon Freeman',
+      price: 2.00,
+      quantity: 1,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+    { name: 'Barney Calhoun',
+      price: 2.00,
+      quantity: 3,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+    { name: 'Lamarr the Headcrab',
+      price: 13,
+      quantity: 10,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+      { name: 'Gordon Freeman',
+      price: 2.00,
+      quantity: 6,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+    { name: 'Barney Calhoun',
+      price: 2.00,
+      quantity: 0,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+    { name: 'Lamarr the Headcrab',
+      price: 13,
+      quantity: 0,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+    { name: 'Gordon Freeman',
+      price: 2.00,
+      quantity: 0,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+    { name: 'Barney Calhoun',
+      price: 2.00,
+      quantity: 0,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+    { name: 'Lamarr the Headcrab',
+      price: 13,
+      quantity: 0,
+      size:'',
+     image:'/img/beverage3.jpg'
+    },
+  ];
+  
 });
