@@ -7,8 +7,10 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<!--
       <script src="//code.ionicframework.com/1.0.0-beta.13/js/ionic.bundle.js"></script>
    
+-->
     <style>
       body {
   cursor: url('http://ionicframework.com/img/finger.png'), auto;
@@ -164,7 +166,10 @@
                 <ion-nav-buttons side="left">
                   <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()">
                   </button>
-                  
+                </ion-nav-buttons>
+                 <ion-nav-buttons side="right">
+                  <button class="button button-icon button-clear ion-ios7-search">
+                  </button>
                 </ion-nav-buttons>
                 
                 <ion-nav-view name="menuContent"></ion-nav-view>
@@ -181,7 +186,7 @@
                     <a ui-sref="eventmenu.home"
                        ui-sref-active="current" 
                        class="item item-icon-left">
-                      <i class="icon ion-ios7-paperplane"></i> Order
+                      <i class="icon ion-ios7-paperplane"></i> Menu
                     </a>
 
 
@@ -196,6 +201,12 @@
                        class="item item-icon-left">
                       <i class="icon ion-ios7-star"></i>
                       Favourite
+                    </a>
+                    <a ui-sref="eventmenu.favourite"
+                       ui-sref-active="current" 
+                       class="item item-icon-left">
+                      <i class="icon ion-ios7-star"></i>
+                      My Order
                     </a>
                     <a ui-sref="eventmenu.location"
                        ui-sref-active="current" 
@@ -217,6 +228,7 @@
           </script>
 
           <script id="home.html" type="text/ng-template">
+          
             <ion-view title="Order Menu">
               <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-light" ng-controller="ModalCtrl">
 
@@ -278,7 +290,7 @@
                         <ion-item ng-repeat="item in items" 
                                   item="item"
                                   href="#/item/{{item.id}}">
-                           {{ item.name+" x "+item.quantity }}
+                           {{ item.name|limitTo:10}}...{{" x "+item.quantity +" - "}}{{item.quantity*item.price|currency}}
                      
                           <ion-option-button class="button-assertive"
                                              ng-click="onItemDelete(item)">
@@ -342,10 +354,11 @@
                   </li>
 
                    <li class="item item-checkbox">
+                    Choc
                      <label class="checkbox">
                        <input type="checkbox" >
                      </label>
-                     Choc
+                    
                   </li>
 
                    <li class="item item-checkbox">
@@ -415,9 +428,8 @@
                           <option>APPLE PAY</option>
                         </select>
                       </label>
-
+    
                     </div>
-
                    
                     </ion-content>
                    <div class="bar bar-footer bar-balanced">
@@ -434,7 +446,8 @@
                         
                          <div class="col" ><img style="width:300px"  src="/img/qrcode.png"/></div>
                   </div>
-                         
+                        <p>Payment Successful</p>
+                        <p>You purchased item will be avalible at 8:00 P.M.</p>
                     </ion-content>
                     <div class="bar bar-footer bar-balanced">
                           <div class="title" ui-sref="eventmenu.home">BACK TO HOME</div>
@@ -494,7 +507,7 @@
                       <ul class="list">
 
                           <li class="item item-toggle" >
-                             HTML5
+                             Notification
                              <label class="toggle toggle-assertive">
                                <input type="checkbox">
                                <div class="track">
@@ -503,7 +516,7 @@
                              </label>
                           </li>
                             <li class="item item-toggle">
-                             HTML5
+                             Sounds
                              <label class="toggle toggle-assertive">
                                <input type="checkbox">
                                <div class="track">
@@ -512,7 +525,7 @@
                              </label>
                           </li>
                             <li class="item item-toggle">
-                             HTML5
+                             Privacy
                              <label class="toggle toggle-assertive">
                                <input type="checkbox">
                                <div class="track">
@@ -521,7 +534,7 @@
                              </label>
                           </li>
                             <li class="item item-toggle">
-                             HTML5
+                             email
                              <label class="toggle toggle-assertive">
                                <input type="checkbox">
                                <div class="track">
@@ -618,7 +631,7 @@
     
     <script src="http://use.edgefonts.net/quicksand:i4,n3,i7,n7,n4,i3:all.js"></script>
    
-<!--    <script src="/lib/ionic/js/ionic.bundle.js"></script>-->
+    <script src="/lib/ionic/js/ionic.bundle.js"></script>
     
     <script src="js/order.js"></script>
     

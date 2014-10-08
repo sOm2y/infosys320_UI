@@ -4990,7 +4990,7 @@ input, button, select, textarea {
     appearance: none;
     margin: 0;
     padding-right: 24px;
-    background-color: transparent; }
+    background-color: #fff; }
   .item-input .button .icon {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 24px;
@@ -5264,6 +5264,7 @@ input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="rad
 
 .checkbox input, .checkbox-icon {
   position: relative;
+  float: right;
   width: 28px;
   height: 28px;
   display: block;
@@ -5320,7 +5321,7 @@ input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="rad
   opacity: 1; }
 
 .item-checkbox {
-  padding-left: 60px; }
+  padding-left: 17px; }
   .item-checkbox.active {
     box-shadow: none; }
 
@@ -5636,7 +5637,7 @@ input[type="range"] {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 14px 48px 16px 16px;
+    padding: 14px 115px 16px 16px;
     max-width: 65%;
     border: none;
     background: #fff;
