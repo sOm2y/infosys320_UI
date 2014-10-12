@@ -1,35 +1,5 @@
 var app=angular.module('order', ['ionic']);
 
-//app.controller('OrderCtrl', function($scope, $ionicSideMenuDelegate) {
-// 
-//  $scope.toggleLeft = function() {
-//    $ionicSideMenuDelegate.toggleLeft();
-//  };
-//  
-//    
-//    
-//    
-//    
-//});
-//
-//app.controller('ListController',function(){
-//    
-//
-//
-//});
-//
-//app.controller('TabController',function(){
-//    this.tabs=item;
-//
-//
-//
-//});
-//
-//var item={
-//    name:"1"
-//
-//}
-
 
 
 
@@ -241,6 +211,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller:"LocationCtrl"
         }
       }
+    }) 
+  .state('eventmenu.myorder',{
+      url:"/myorder",
+      views:{
+        'menuContent' :{
+          templateUrl:"myorder.html",
+          controller:"ModalCtrl"
+        }
+      }
+    })  
+  .state('eventmenu.detail',{
+      url:"/detail",
+      views:{
+        'menuContent' :{
+          templateUrl:"detail.html",
+          controller:"ModalCtrl"
+        }
+      }
     })
   
   $urlRouterProvider.otherwise("/event/home");
@@ -363,23 +351,23 @@ app.controller('FavouriteCtrl', function($scope) {
 app.controller('ModalCtrl', function($scope, $ionicModal) {
   
   
-  $scope.adds = [
+ $scope.adds = [
     { name: 'Gordon Freeman',
       price: 2.00,
-      quantity: 0,
-      size:'',
+      quantity: 13,
+      size:'Small',
      image:'/img/beverage3.jpg'
     },
     { name: 'Barney Calhoun',
       price: 2.00,
-      quantity: 0,
-      size:'',
+      quantity: 6,
+      size:'Medium',
      image:'/img/beverage3.jpg'
     },
     { name: 'Lamarr the Headcrab',
       price: 13,
-      quantity: 0,
-      size:'',
+      quantity: 2,
+      size:'Large',
      image:'/img/beverage3.jpg'
     },
   ];
@@ -397,7 +385,7 @@ app.controller('ModalCtrl', function($scope, $ionicModal) {
     console.log($scope.adds);
   };
 
-});
+}); 
 
 
 

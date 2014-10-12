@@ -30,127 +30,6 @@
  
   <body>
 
-<!--
-    <ion-side-menus>
-    
-      <ion-side-menu-content>
-        <ion-header-bar class="bar-positive">
-          <button class="button button-icon ion-navicon" ng-click="toggleLeft()" ng-hide="$exposeAside.active"></button>
-          <h1 class="title">Coffee Time</h1>
-
-        </ion-header-bar>
-
-          <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-light" ng-controller="BeverageCtrl">
-
-              <ion-tab title="Beverage" icon-on="ion-coffee" ng-controller="BeverageCtrl" >
-                  <ion-content>
-                    <div class="list">
-
-                        <a ng-repeat="item in items" 
-                           href="#/{{item.id}}"
-                           class="item item-thumbnail-left">
-
-                          <img ng-src="{{ item.image }}">
-                          <h2>{{ item.name }}</h2>
-                          <h4>{{ item.price | currency}}</h4>
-                        </a>
-
-                      </div>
-
-                   </ion-content>
-              </ion-tab>
-
-              <ion-tab title="Food" icon-on="ion-pizza" ng-controller="FoodCtrl">  
-              <ion-content>
-                    <div class="list">
-
-                        <a ng-repeat="item in items" 
-                           href="#/{{item.id}}"
-                           class="item item-thumbnail-left">
-
-                          <img ng-src="{{ item.image }}">
-                          <h2>{{ item.name }}</h2>
-                          <h4>{{ item.price | currency }}</h4>
-                        </a>
-
-                      </div>
-
-                   </ion-content>
-              </ion-tab>
-
-              <ion-tab title="Cart" icon-on="ion-ios7-cart" ng-controller="CartCtrl">
-              <ion-content>
-                   <ion-list  can-swipe="listCanSwipe">
-                      <ion-item ng-repeat="item in items">
-
-
-                        <a href="#/{{item.id}}"class="item item-thumbnail-left">
-
-                          <img ng-src="{{ item.image }}">
-                          <h2>{{ item.album }}</h2>
-                          <h4>{{ item.artist }}</h4>
-                           <ion-option-button class="button-positive">Share</ion-option-button>
-    <ion-option-button class="button-assertive">Edit</ion-option-button>
-                        </a>
-                        <ion-option-button class="button-positive"
-                    >
-                          Share
-                        </ion-option-button>
-                        <ion-option-button class="button-info">
-                          Edit
-                        </ion-option-button>
-
-                     </ion-item>
-                    </ion-list>
-
-                   </ion-content>
-               
-               
-              </ion-tab>
-
-            </ion-tabs>
-       
-         
-        <ion-content class="">
-         
-                 
-       
-       <div id="googleMap" style="width:320;height:550px;"></div>
-        </ion-content>
-      </ion-side-menu-content>
-    
-      <ion-side-menu expose-aside-when="large" >
-        <ion-header-bar class="bar-royal">
-          <h1 class="title">Setting</h1>
-        </ion-header-bar>
-        <ion-content>
-          <div class="list">
-            <div class="item active">
-              <a class="icon ion-ios7-paperplane"> Order</a>
-            </div>
-             <div class="item">
-              <a class="icon ion-ios7-person"> Account</a>
-            </div>
-            <div class="item">
-              <a class="icon ion-ios7-gear"> Setting</a>
-            </div>
-            <div class="item">
-              <a class="icon ion-ios7-location"> Location</a>
-            </div>
-            <div class="item">
-              <a class="icon ion-log-out"> Log out</a>
-            </div>
-          </div>
-        </ion-content>
-      </ion-side-menu>
-      
-    </ion-side-menus>
-    
-    
--->
-        
- 
-    
     
      <div ng-controller="MainCtrl">       
             <ion-nav-view></ion-nav-view>
@@ -184,6 +63,7 @@
                   <ul class="list">
                     
                     <a ui-sref="eventmenu.home"
+                       ng-click="toggleLeft()"
                        ui-sref-active="current" 
                        class="item item-icon-left">
                       <i class="icon ion-ios7-paperplane"></i> Menu
@@ -192,29 +72,34 @@
 
 
                     <a ui-sref="eventmenu.account"
+                    ng-click="toggleLeft()"
                        ui-sref-active="current" 
                        class="item item-icon-left">
                       <i class="icon ion-ios7-person"></i>Account
                     </a>
                     <a ui-sref="eventmenu.favourite"
+                    ng-click="toggleLeft()"
                        ui-sref-active="current" 
                        class="item item-icon-left">
                       <i class="icon ion-ios7-star"></i>
                       Favourite
                     </a>
-                    <a ui-sref="eventmenu.favourite"
+                    <a ui-sref="eventmenu.myorder"
+                    ng-click="toggleLeft()"
                        ui-sref-active="current" 
                        class="item item-icon-left">
-                      <i class="icon ion-ios7-star"></i>
+                      <i class="icon ion-clipboard"></i>
                       My Order
                     </a>
                     <a ui-sref="eventmenu.location"
+                      ng-click="toggleLeft()"
                        ui-sref-active="current" 
                        class="item item-icon-left">
                       <i class="icon ion-ios7-location"></i>
                       Locations
                     </a>
                      <a ui-sref="eventmenu.location"
+                       ng-click="toggleLeft()"
                        ui-sref-active="current" 
                        class="item item-icon-left">
                        <i class="icon ion-log-out"></i>
@@ -290,7 +175,8 @@
                         <ion-item ng-repeat="item in items" 
                                   item="item"
                                   href="#/item/{{item.id}}">
-                           {{ item.name|limitTo:10}}...{{" x "+item.quantity +" - "}}{{item.quantity*item.price|currency}}
+                                  {{item.quantity*item.price|currency}}
+                           {{ item.name|limitTo:10}}...{{" x "+item.quantity}}
                      
                           <ion-option-button class="button-assertive"
                                              ng-click="onItemDelete(item)">
@@ -325,14 +211,25 @@
       <ion-modal-view>
         <ion-header-bar class="bar bar-header bar-positive">
           <h1 class="title"></h1>
-          <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+          <button class="button button-clear button-primary" ng-click="modal.hide()"><i class="ion-close"></i></button>
         </ion-header-bar>
         <ion-content class="padding">
           <div class="list">
-            <label class="item item-input">
-              <span class="input-label">Quantity</span>
-              <input ng-model="add.quantity" type="text">
-            </label>
+             <label class="item item-input item-select">
+                <div class="input-label">
+                  Quantity
+                </div>
+                <select style="padding: 14px 132px 16px 16px;">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                </select>
+              </label>
           
               <label class="item item-input item-select">
                 <div class="input-label">
@@ -342,6 +239,16 @@
                   <option>small</option>
                   <option selected>median</option>
                   <option>large</option>
+                </select>
+              </label>
+               <label class="item item-input item-select">
+                <div class="input-label">
+                  Extra
+                </div>
+                <select  style="padding: 14px 11px 16px 16px;">
+                  <option>expresso shot</option>
+                  <option selected>chocolate syrup shot</option>
+                  <option>vanilla syrup shot</option>
                 </select>
               </label>
                <ul class="list">
@@ -354,22 +261,14 @@
                   </li>
 
                    <li class="item item-checkbox">
-                    Choc
+                    Milk
                      <label class="checkbox">
                        <input type="checkbox" >
                      </label>
                     
                   </li>
 
-                   <li class="item item-checkbox">
-                     <label class="checkbox">
-                       <input type="checkbox" >
-                     </label>
-                     Cookie
-                  </li>
-
-                  
-
+               
                 </ul>
               
             <button class="button button-full button-positive" ng-click="createContact(add)">ADD</button>
@@ -377,6 +276,9 @@
         </ion-content>
       </ion-modal-view>
     </script>
+      
+          
+          
            
            <script id="checkout.html" type="text/ng-template">
                
@@ -416,20 +318,39 @@
                   <a class="button button-clear button-primary"  ui-sref="eventmenu.checkout">Back</a>
                 </ion-header-bar>
                       <ion-content>
+                    
+
                      <div class="list">
 
-                      <label class="item item-input item-select">
-                        <div class="input-label">
-                          Payment
+                          <label class="item item-radio">
+                            <input type="radio" name="group">
+                            <div class="item-content">
+                              ONLINE BANKING
+                            </div>
+                            <i class="radio-icon ion-checkmark"></i>
+                          </label>
+
+                          <label class="item item-radio">
+                            <input type="radio" name="group">
+                            <div class="item-content">
+                              CREDIT CARD
+                            </div>
+                            <i class="radio-icon ion-checkmark"></i>
+                          </label>
+
+                          <label class="item item-radio">
+                            <input type="radio" name="group">
+                            <div class="item-content">
+                              APPLE PAY
+                            </div>
+                            <i class="radio-icon ion-checkmark"></i>
+                          </label>
+
+                          
+
                         </div>
-                        <select>
-                          <option>VISA</option>
-                          <option selected>INTERNET BANK</option>
-                          <option>APPLE PAY</option>
-                        </select>
-                      </label>
-    
-                    </div>
+
+                    <P>250 POINTS EARNED</P>
                    
                     </ion-content>
                    <div class="bar bar-footer bar-balanced">
@@ -492,6 +413,11 @@
                          <span class="item-note">
                           250PTS
                         </span>
+                      </a>
+                        <a class="item item-icon-left" href="#">
+                        <i class="icon ion-information-circled"></i>
+                        About sOm2y
+                       
                       </a>
 
                     </div>
@@ -613,6 +539,108 @@
                   </ion-content>
                 </ion-view>
               </script>
+              
+                <script id="myorder.html" type="text/ng-template">
+                <ion-view title="My order" left-buttons="leftButtons">
+                  <ion-content>
+                       <div class="list card">
+
+                      <div class="item item-avatar">
+                        <img src="avatar.jpg">
+                        <h2>Pretty Hate Machine</h2>
+                        <p>Nine Inch Nails</p>
+                      </div>
+
+                      <div class="item item-image">
+                        <img src="/img/beverage3.jpg">
+                      </div>
+
+                      <a class="item item-icon-left assertive" ui-sref="eventmenu.detail">
+                        <i class="icon ion-music-note"></i>
+                        Start listening
+                      </a>
+
+                    </div> 
+                    <div class="list card">
+
+                      <div class="item item-avatar">
+                        <img src="avatar.jpg">
+                        <h2>Pretty Hate Machine</h2>
+                        <p>Nine Inch Nails</p>
+                      </div>
+
+                      <div class="item item-image">
+                        <img src="/img/beverage3.jpg">
+                      </div>
+
+                      <a class="item item-icon-left assertive" ui-sref="eventmenu.detail">
+                        <i class="icon ion-music-note"></i>
+                        Start listening
+                      </a>
+
+                    </div>
+                   <div class="list card">
+
+                      <div class="item item-avatar">
+                        <img src="avatar.jpg">
+                        <h2>Pretty Hate Machine</h2>
+                        <p>Nine Inch Nails</p>
+                      </div>
+
+                      <div class="item item-image">
+                        <img src="/img/beverage3.jpg">
+                      </div>
+
+                      <a class="item item-icon-left assertive" ui-sref="eventmenu.detail">
+                        <i class="icon ion-music-note"></idetail
+                        Start listening
+                      </a>
+
+                    </div>
+                   <div class="list card">
+
+                      <div class="item item-avatar">
+                        <img src="avatar.jpg">
+                        <h2>Pretty Hate Machine</h2>
+                        <p>Nine Inch Nails</p>
+                      </div>
+
+                      <div class="item item-image">
+                        <img src="/img/beverage3.jpg">
+                      </div>
+
+                      <a class="item item-icon-left assertive" ui-sref="eventmenu.detail">
+                        <i class="icon ion-music-note"></i>
+                        Start listening
+                      </a>
+
+                    </div>
+                  </ion-content>
+                </ion-view>
+              </script>
+                <script id="detail.html" type="text/ng-template">
+              <ion-view>
+         
+                
+                <ion-content class="padding">
+                <div class="list">
+
+                  <div class="item item-divider">
+                    Candy Bars
+                  </div>
+
+                  <a class="item" href="#">
+                    Butterfinger
+                  </a>
+
+                  ...
+
+                </div>
+                </ion-content>
+              </ion-view>
+            </script>
+          
+              
               <script id="location.html" type="text/ng-template">
                
                 <ion-view title="Store Location">
