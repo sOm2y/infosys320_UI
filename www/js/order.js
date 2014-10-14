@@ -93,14 +93,14 @@ app.controller('FoodCtrl', function($scope) {
   // don't be scared by the image value, its just datauri
   
   $scope.items = [
-    { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
-    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
-    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
-    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
-    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
-    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+    { id: 1, name: 'Muffin1', price: '1.8', image:'/img/muffin1.jpg'},
+    { id: 2, name: 'Muffin2', price: '2.7', image:'/img/muffin2.png' },
+    { id: 3, name: 'Muffin3', price: '4.99', image:'/img/muffin2.png' },
+    { id: 4, name: 'Muffin4', price: '3.99', image:'/img/muffin2.png' },
+    { id: 5, name: 'Muffin5', price: '12.99', image:'/img/muffin2.png' },
+    { id: 6, name: 'Muffin6', price: '3.99', image:'/img/muffin2.png' },
+    { id: 7, name: 'Muffin7', price: '6.99', image:'/img/muffin2.png' },
+    { id: 8, name: 'Muffin8', price: '6.99', image:'/img/muffin2.png' }
   ];
   
 });
@@ -108,15 +108,14 @@ app.controller('CartCtrl', function($scope) {
   // don't be scared by the image value, its just datauri
   
   $scope.items = [
-    { id: 1, album: 'Gotta Be Somebody', artist: 'Nickelback', image:'/img/beverage1.jpg'},
-    { id: 2, album: 'Dark Horse', artist: 'Nickelback', image:'/img/beverage2.jpg' },
-    { id: 3, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-    { id: 4, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-    { id: 5, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-    { id: 6, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-    { id: 7, album: 'Someday', artist: 'Nickelback', image:'/img/beverage3.jpg' },
-    { id: 8, album: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
-  ];
+  { id: 1, name: 'Muffin1', price: '1.8', image:'/img/muffin1.jpg'},
+    { id: 2, name: 'Muffin2', price: '2.7', image:'/img/muffin2.png' },
+    { id: 3, name: 'Muffin3', price: '4.99', image:'/img/muffin2.png' },
+    { id: 4, name: 'Muffin4', price: '3.99', image:'/img/muffin2.png' },
+    { id: 5, name: 'Muffin5', price: '12.99', image:'/img/muffin2.png' },
+    { id: 6, name: 'Muffin6', price: '3.99', image:'/img/muffin2.png' },
+    { id: 7, name: 'Muffin7', price: '6.99', image:'/img/muffin2.png' },
+    { id: 8, name: 'Muffin8', price: '6.99', image:'/img/muffin2.png' }  ];
   
 });
 
@@ -412,25 +411,25 @@ app.controller('testCtrl', function($scope) {
   };
   
   $scope.items = [
-    { name: 'Gordon Freeman',
+    { name: 'Muffin1',
       price: 2.00,
       quantity: 1,
       size:'',
      image:'/img/beverage3.jpg'
     },
-    { name: 'Barney Calhoun',
+    { name: 'Muffin1',
       price: 2.00,
       quantity: 3,
       size:'',
      image:'/img/beverage3.jpg'
     },
-    { name: 'Lamarr the Headcrab',
+    { name: 'Coffee1',
       price: 13,
       quantity: 10,
       size:'',
      image:'/img/beverage3.jpg'
     },
-      { name: 'Gordon Freeman',
+      { name: 'Tea1',
       price: 2.00,
       quantity: 6,
       size:'',
