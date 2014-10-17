@@ -9,56 +9,30 @@ app.controller('BeverageCtrl', function($scope) {
  
     $scope.groups = [
     {
-      name:"EXPRESSO" ,
-      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
-    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
-    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
-    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
-    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
-    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+      name:"ESPRESSO" ,
+      items: [  
+    { id: 1, name: 'LATTE', price: '4.99', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'FLAT WHITE', price: '3.99', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'CAPPUCCINO', price: '4.99', image:'/img/beverage3.jpg' }
         ]
     },
-    {
-    
-      name: "FEAPPUCCINO",
-      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
-    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
-    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
-    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
-    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
-    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
-        ]
-    
-    
-    },
+   
     {
       name: "TEAS",
-      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
-    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
-    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
-    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
-    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
-    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+      items: [   
+    { id: 1, name: 'ENGLISH BREAKFAST', price: '10', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'GREEN TEA', price: '2.99', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'RED TEA', price: '2.99', image:'/img/beverage3.jpg' }
         ]
     
     
     },
     {
-      name: "CHCO DRINKS",
-      items: [   { id: 1, name: 'Gotta Be Somebody', price: '1.8', image:'/img/beverage1.jpg'},
-    { id: 2, name: 'Dark Horse', price: '2.7', image:'/img/beverage2.jpg' },
-    { id: 3, name: 'Someday', price: '4.99', image:'/img/beverage3.jpg' },
-    { id: 4, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 5, name: 'Someday', price: '12.99', image:'/img/beverage3.jpg' },
-    { id: 6, name: 'Someday', price: '3.99', image:'/img/beverage3.jpg' },
-    { id: 7, name: 'Someday', price: '6.99', image:'/img/beverage3.jpg' },
-    { id: 8, name: 'All The Right Reasons', artist: 'Nickelback', image:'/img/beverage3.jpg' }
+      name: "CHOCOLATE DRINKS",
+      items: [   
+    { id: 1, name: 'HOT CHOCOLATE', price: '2.99', image:'/img/beverage1.jpg'},
+    { id: 2, name: 'MOCHA', price: '4.99', image:'/img/beverage2.jpg' },
+    { id: 3, name: 'MOCHA LATTE', price: '4.99', image:'/img/beverage3.jpg' }
         ]
     
     
@@ -93,14 +67,9 @@ app.controller('FoodCtrl', function($scope) {
   // don't be scared by the image value, its just datauri
   
   $scope.items = [
-    { id: 1, name: 'Muffin1', price: '1.8', image:'/img/muffin1.jpg'},
-    { id: 2, name: 'Muffin2', price: '2.7', image:'/img/muffin2.png' },
-    { id: 3, name: 'Muffin3', price: '4.99', image:'/img/muffin2.png' },
-    { id: 4, name: 'Muffin4', price: '3.99', image:'/img/muffin2.png' },
-    { id: 5, name: 'Muffin5', price: '12.99', image:'/img/muffin2.png' },
-    { id: 6, name: 'Muffin6', price: '3.99', image:'/img/muffin2.png' },
-    { id: 7, name: 'Muffin7', price: '6.99', image:'/img/muffin2.png' },
-    { id: 8, name: 'Muffin8', price: '6.99', image:'/img/muffin2.png' }
+    { id: 1, name: 'BERRY MUFFIN', price: '1.8', image:'/img/muffin1.jpg'},
+    { id: 2, name: 'CHOCOLATE MUFFIN', price: '2.7', image:'/img/muffin2.png' },
+    { id: 3, name: 'BANANA MUFFIN', price: '4.99', image:'/img/muffin2.png' }
   ];
   
 });
@@ -108,14 +77,9 @@ app.controller('CartCtrl', function($scope) {
   // don't be scared by the image value, its just datauri
   
   $scope.items = [
-  { id: 1, name: 'Muffin1', price: '1.8', image:'/img/muffin1.jpg'},
-    { id: 2, name: 'Muffin2', price: '2.7', image:'/img/muffin2.png' },
-    { id: 3, name: 'Muffin3', price: '4.99', image:'/img/muffin2.png' },
-    { id: 4, name: 'Muffin4', price: '3.99', image:'/img/muffin2.png' },
-    { id: 5, name: 'Muffin5', price: '12.99', image:'/img/muffin2.png' },
-    { id: 6, name: 'Muffin6', price: '3.99', image:'/img/muffin2.png' },
-    { id: 7, name: 'Muffin7', price: '6.99', image:'/img/muffin2.png' },
-    { id: 8, name: 'Muffin8', price: '6.99', image:'/img/muffin2.png' }  ];
+    { id: 1, name: 'BERRY MUFFIN', price: '1.8', image:'/img/muffin1.jpg'},
+    { id: 2, name: 'CHOCOLATE MUFFIN', price: '2.7', image:'/img/muffin2.png' },
+    { id: 3, name: 'BANANA MUFFIN', price: '4.99', image:'/img/muffin2.png' }  ];
   
 });
 
