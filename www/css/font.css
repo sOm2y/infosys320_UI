@@ -38,7 +38,7 @@ h1{
     
 }
 
-h2
+h6
 {
     font-family: quicksand;
     color: rgba(255,255,255,.8);
@@ -56,19 +56,7 @@ h2
 }
 
 
-h3{
-    
-    font-family: quicksand;
-    color: rgba(255,255,255,.8);
-    font-size:1.6em;
-    text-align: center;
-    top:20%;
-    position: relative;
-    font-size: 1.7em;
-    text-transform: uppercase;
-    border-radius: 
-    
-}
+
 
 a{
     text-decoration: none;
